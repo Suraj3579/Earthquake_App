@@ -50,9 +50,9 @@ public final class QueryUtils {
     }
 
     /**
-     * Query the USGS dataset and return a list of {@link Eathquake} objects.
+     * Query the USGS dataset and return a list of {@link Earthquake} objects.
      */
-    public static List<Eathquake> fetchEarthquakeData(String requestUrl) {
+    public static List<Earthquake> fetchEarthquakeData(String requestUrl) {
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -65,7 +65,7 @@ public final class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
-        List<Eathquake> earthquakes = extractFeatureFromJson(jsonResponse);
+        List<Earthquake> earthquakes = extractFeatureFromJson(jsonResponse);
 
         // Return the list of {@link Earthquake}s
         return earthquakes;
@@ -147,17 +147,17 @@ public final class QueryUtils {
     }
 
     /**
-     * Return a list of {@link Eathquake} objects that has been built up from
+     * Return a list of {@link Earthquake} objects that has been built up from
      * parsing the given JSON response.
      */
-    private static List<Eathquake> extractFeatureFromJson(String earthquakeJSON) {
+    private static List<Earthquake> extractFeatureFromJson(String earthquakeJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(earthquakeJSON)) {
             return null;
         }
 
         // Create an empty ArrayList that we can start adding earthquakes to
-        List<Eathquake> earthquakes = new ArrayList<>();
+        List<Earthquake> earthquakes = new ArrayList<>();
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -196,7 +196,7 @@ public final class QueryUtils {
 
                 // Create a new {@link Earthquake} object with the magnitude, location, time,
                 // and url from the JSON response.
-                Eathquake earthquake = new Eathquake(magnitude, location, time, url);
+                Earthquake earthquake = new Earthquake(magnitude, location, time, url);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 earthquakes.add(earthquake);

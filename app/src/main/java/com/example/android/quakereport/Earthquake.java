@@ -16,9 +16,9 @@
 package com.example.android.quakereport;
 
 /**
- * An {@link Eathquake} object contains information related to a single earthquake.
+ * An {@link Earthquake} object contains information related to a single earthquake.
  */
-public class Eathquake {
+public class Earthquake {
 
     /** Magnitude of the earthquake */
     private double mMagnitude;
@@ -33,7 +33,7 @@ public class Eathquake {
     private String mUrl;
 
     /**
-     * Constructs a new {@link Eathquake} object.
+     * Constructs a new {@link Earthquake} object.
      *
      * @param magnitude is the magnitude (size) of the earthquake
      * @param location is the location where the earthquake happened
@@ -41,7 +41,7 @@ public class Eathquake {
      *                           earthquake happened
      * @param url is the website URL to find more details about the earthquake
      */
-    public Eathquake(double magnitude, String location, long timeInMilliseconds, String url) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
         mMagnitude = magnitude;
         mLocation = location;
         mTimeInMilliseconds = timeInMilliseconds;

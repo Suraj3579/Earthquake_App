@@ -31,12 +31,12 @@ import java.util.List;
 
 /**
  * An {@link EarthquakeAdapter} knows how to create a list item layout for each earthquake
- * in the data source (a list of {@link Eathquake} objects).
+ * in the data source (a list of {@link Earthquake} objects).
  *
  * These list item layouts will be provided to an adapter view like ListView
  * to be displayed to the user.
  */
-public class EarthquakeAdapter extends ArrayAdapter<Eathquake> {
+public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
     /**
      * The part of the location string from the USGS service that we use to determine
@@ -50,7 +50,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Eathquake> {
      * @param context of the app
      * @param earthquakes is the list of earthquakes, which is the data source of the adapter
      */
-    public EarthquakeAdapter(Context context, List<Eathquake> earthquakes) {
+    public EarthquakeAdapter(Context context, List<Earthquake> earthquakes) {
         super(context, 0, earthquakes);
     }
 
@@ -69,7 +69,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Eathquake> {
         }
 
         // Find the earthquake at the given position in the list of earthquakes
-        Eathquake currentEarthquake = getItem(position);
+        Earthquake currentEarthquake = getItem(position);
 
         // Find the TextView with view ID magnitude
         TextView magnitudeView = (TextView) listItemView.findViewById(R.id.magnitude);
@@ -101,7 +101,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Eathquake> {
         if (originalLocation.contains(LOCATION_SEPARATOR)) {
             // Split the string into different parts (as an array of Strings)
             // based on the " of " text. We expect an array of 2 Strings, where
-                // the first String will be "5km N" and the second String will be "Cairo, Egypt".
+            // the first String will be "5km N" and the second String will be "Cairo, Egypt".
             String[] parts = originalLocation.split(LOCATION_SEPARATOR);
             // Location offset should be "5km N " + " of " --> "5km N of"
             locationOffset = parts[0] + LOCATION_SEPARATOR;
